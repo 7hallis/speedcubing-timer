@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧩 Speedcubing Timer (WCA-style)
 
-## Getting Started
+Um **cronômetro de cubo mágico** inspirado no **csTimer**, feito em **Next.js + React**, com inspeção WCA, bips sonoros, controle de volume e UX refinada para speedcubers.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Funcionalidades
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### ⏱️ Cronômetro
+- Timer de alta precisão usando `requestAnimationFrame`
+- Início e parada com **barra de espaço**
+- Mantém o tempo visível após parar (solve salvo)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🔍 Inspeção WCA
+- Inspeção de **15 segundos**
+- Bips sonoros nos **8 segundos finais**
+- Mudança de cor para **vermelho** nos últimos 8s
+- Início automático do cronômetro ao chegar em `0`
+- Toggle para **ativar/desativar inspeção**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🔊 Áudio
+- Beep configurável (on/off)
+- Controle de **volume**
+- Áudio otimizado (AudioContext único, sem travamentos)
 
-## Learn More
+### 🎯 UX / UI
+- Animação suave ao rodar
+- **Soft reset quase imperceptível** ao reiniciar sem inspeção
+- Visual limpo e focado (estilo csTimer)
+- Feedback visual por cores:
+  - 🟡 Inspeção
+  - 🔴 Perigo (últimos 8s)
+  - 🟢 Rodando
+  - ⚪ Parado / Idle
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎮 Controles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Ação | Tecla |
+|----|----|
+| Iniciar inspeção | Espaço |
+| Iniciar timer | Espaço |
+| Parar timer (salvar solve) | Espaço |
+| Nova inspeção / novo ciclo | Espaço |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Tecnologias
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Next.js (App Router)**
+- **React**
+- **TypeScript**
+- **Framer Motion**
+- **Web Audio API**
+- **Tailwind CSS**
+- **Shadcn/ui**
+
+---
+
+## 📦 Estrutura (principal)
+
+```txt
+src/
+ ├─ _components/
+ │   └─ CubeSelector.tsx
+ ├─ app/
+ │     Timer/
+ │     └─ Scramble.tsx
+ │     └─ Timer.tsx
+ │   └─ page.tsx
+ ├─ lib/
+ │   └─ eventConfigs.ts
+ │   └─ events.ts
+ │   └─ randomAlg.ts
+ │   └─ scrambler.ts
+ │   └─ utils.ts
