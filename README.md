@@ -2,8 +2,6 @@
 
 Um **cronômetro de cubo mágico** inspirado no **csTimer**, feito em **Next.js + React**, com inspeção WCA, bips sonoros, controle de volume e UX refinada para speedcubers.
 
-Projeto ideal para **treino**, **uso pessoal** ou como **portfólio frontend**.
-
 ---
 
 ## ✨ Funcionalidades
@@ -56,7 +54,7 @@ Projeto ideal para **treino**, **uso pessoal** ou como **portfólio frontend**.
 - **Framer Motion**
 - **Web Audio API**
 - **Tailwind CSS**
-- - **Shadcn/ui**
+- **Shadcn/ui**
 
 ---
 
